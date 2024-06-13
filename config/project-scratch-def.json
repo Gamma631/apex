@@ -1,0 +1,19 @@
+{
+  "orgName": "OmniStudioTestOrg",
+  "edition": "Enterprise",
+  "features": [
+    "EnableSetPasswordInApi",
+    "Communities",
+    "OmnistudioMetadata",
+    "OmnistudioRuntime",
+    "OmnistudioDesigner"
+  ],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    }
+  }
+}
