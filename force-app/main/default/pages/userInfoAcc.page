@@ -1,0 +1,32 @@
+<apex:page controller="DisplayAccountController">
+    <apex:form>
+        <apex:pageBlock title="Display Account Details">
+            <apex:pageMessages /> <!-- To display any error messages -->
+            
+            <apex:pageBlockSection>
+                <apex:inputText value="{!accId}" label="Enter Account Id" />
+                <apex:commandButton value="Display Account" action="{!fetchAcc}" rerender="accountDetailsPanel" />
+            </apex:pageBlockSection>
+            
+            <apex:outputPanel id="accountDetailsPanel">
+                <apex:pageBlockSection rendered="{!displayacc}">
+                    <apex:outputText value="Account Name: {!acc.Name}" /><br/>
+                    <apex:outputText value="Phone: {!acc.Phone}" /><br/>
+                    <apex:outputText value="Website: {!acc.Website}" /><br/>
+                    <apex:outputText value="Industry: {!acc.Industry}" />
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+			<apex:outputPanel id="contactListPanel">
+                <apex:pageBlockSection title="Related Contacts" rendered="{!displayAccount}">
+                    <apex:dataList value="{!relatedContacts}" var="contact">
+                        <apex:outputText value="{!contact.Name}" /><br/>
+                    </apex:dataList>
+                    <apex:outputPanel rendered="{!relatedContacts.size == 0}">
+                        No related contacts found.
+                    </apex:outputPanel>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

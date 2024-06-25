@@ -1,0 +1,12 @@
+<apex:page Controller="AccController">
+	<apex:form>
+        <apex:pageBlock title="Account Details">
+            <apex:pageBlockSection>
+                <apex:outputField value="{!acc.Name}" label="Account Name"/>
+                <apex:outputField value="{!acc.Phone}" label="Phone"/>
+                <apex:outputField value="{!acc.Website}" label="Website"/>
+                <apex:outputField value="{!acc.Industry}" label="Industry"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

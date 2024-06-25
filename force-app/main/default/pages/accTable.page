@@ -1,0 +1,29 @@
+
+<apex:page standardController="Account" recordSetVar="accounts">
+    <apex:form>
+        <apex:pageBlock title="Account List">
+            <apex:pageBlockButtons>
+                <apex:commandButton value="Previous" action="{!previous}" rerender="accountTable" disabled="{!NOT(accounts.hasPrevious)}"/>
+                <apex:commandButton value="Next" action="{!next}" rerender="accountTable" disabled="{!NOT(accounts.hasNext)}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection id="accountTable">
+                <apex:pageMessages />
+                <apex:pageBlockTable value="{!accounts}" var="account">
+                    <apex:column headerValue="Account Name">
+                        <apex:outputLink value="/{!account.Id}">{!account.Name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Phone">
+                        <apex:outputText value="{!account.Phone}"/>
+                    </apex:column>
+                    <apex:column headerValue="Website">
+                        <apex:outputText value="{!account.Website}"/>
+                    </apex:column>
+                    <apex:column headerValue="Industry">
+                        <apex:outputText value="{!account.Industry}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

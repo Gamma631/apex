@@ -1,0 +1,31 @@
+<apex:page Controller="FixedAccController">
+    <header>
+        <apex:stylesheet value="{!$Resource.accStyle}"/>
+        <apex:slds/>
+    </header>
+
+	<apex:form>
+        <apex:pageBlock title="Account Details">
+            <apex:pageBlockSection>
+                <apex:outputField value="{!acc.Name}" label="Account Name"/>
+                <apex:outputField value="{!acc.Phone}" label="Phone"/>
+                <apex:outputField value="{!acc.Website}" label="Website"/>
+                <apex:outputField value="{!acc.Industry}" label="Industry"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="About Me">
+            <apex:outputPanel>
+                <apex:outputText value="{!aboutMe}"/>
+            </apex:outputPanel>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="greetingBlock" rendered="{!showGreeting}">
+            <apex:pageBlockSection>
+                <apex:outputText value="Hello, {!acc.Name}!" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:commandButton value="Show Greeting" action="{!showGreetingAction}" rerender="theForm" rendered="{!NOT(showGreeting)}"/>
+    </apex:form>
+</apex:page>

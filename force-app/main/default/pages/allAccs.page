@@ -1,0 +1,21 @@
+<apex:page controller="AllAccountsContactsController">
+    <apex:pageBlock title="All Accounts and Their Contacts">
+        <apex:pageBlockTable value="{!accounts}" var="acc">
+            <apex:column headerValue="Account Name">
+                <apex:outputText value="{!acc.Name}" />
+            </apex:column>
+            <apex:column headerValue="Phone">
+                <apex:outputText value="{!acc.Phone}" />
+            </apex:column>
+            <apex:column headerValue="Website">
+                <apex:outputText value="{!acc.Website}" />
+            </apex:column>
+            <apex:column headerValue="Industry">
+                <apex:outputText value="{!acc.Industry}" />
+            </apex:column>
+            <apex:column headerValue="Contacts">
+                <apex:outputText value="{!getContacts(acc)}" />
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>
