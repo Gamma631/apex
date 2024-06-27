@@ -1,21 +1,39 @@
 <apex:page controller="AllAccountsContactsController">
-    <apex:pageBlock title="All Accounts and Their Contacts">
-        <apex:pageBlockTable value="{!accounts}" var="acc">
-            <apex:column headerValue="Account Name">
-                <apex:outputText value="{!acc.Name}" />
-            </apex:column>
-            <apex:column headerValue="Phone">
-                <apex:outputText value="{!acc.Phone}" />
-            </apex:column>
-            <apex:column headerValue="Website">
-                <apex:outputText value="{!acc.Website}" />
-            </apex:column>
-            <apex:column headerValue="Industry">
-                <apex:outputText value="{!acc.Industry}" />
-            </apex:column>
-            <apex:column headerValue="Contacts">
-                <apex:outputText value="{!getContacts(acc)}" />
-            </apex:column>
-        </apex:pageBlockTable>
-    </apex:pageBlock>
+    <apex:form id="searchForm">
+        <apex:pageBlock title="Search and Filter Accs">
+            <apex:pageBlockSection>
+                <apex:inputText value="{!searchString}" id="searchInput">
+                    <apex:actionSupport event="onchange" action="{!searchAccs}" reRender="accsTable" />
+                </apex:inputText>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="All Accs and Their Contacts">
+            <apex:pageBlockTable value="{!accs}" var="acc" id="accsTable">
+                <apex:column headerValue="Acc Name">
+                    <apex:outputText value="{!acc.Name}" />
+                </apex:column>
+                <apex:column headerValue="Phone">
+                    <apex:outputText value="{!acc.Phone}" />
+                </apex:column>
+                <apex:column headerValue="Website">
+                    <apex:outputText value="{!acc.Website}" />
+                </apex:column>
+                <apex:column headerValue="Industry">
+                    <apex:outputText value="{!acc.Industry}" />
+                </apex:column>
+                <apex:column headerValue="Contacts">
+                    <apex:outputText value="{!getContacts(acc)}" />
+                </apex:column>
+				<apex:inlineEditSupport event="ondblclick" 
+                                        showOnEdit="saveButton,cancelButton" 
+                                        hideOnEdit="editButton"/>
+			</apex:pageBlockTable> 
+			<apex:pageBlockButtons> 
+				<apex:commandButton value="Edit" action="{!edit}" id="editButton" />
+				<apex:commandButton value="Save" action="{!save}" id="saveButton" />
+				<apex:commandButton value="Cancel" action="{!cancel}" id="cancelButton" />
+			</apex:pageBlockButtons> 
+        </apex:pageBlock>
+    </apex:form>
 </apex:page>

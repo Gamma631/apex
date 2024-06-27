@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Account Search with Wire Service">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Enter Account Name" value={accountName} onchange={handleInputChange}></lightning-input>
+        </div>
+        <template if:true={accounts}>
+            <lightning-datatable data={accounts} columns={columns} key-field="Id"></lightning-datatable>
+        </template>
+    </lightning-card>
+</template>

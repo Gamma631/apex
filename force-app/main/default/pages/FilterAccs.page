@@ -1,0 +1,17 @@
+<apex:page controller="FilterAccsController">
+    <apex:form>
+        <apex:pageBlock title="Filter Accs">
+            <apex:pageMessages />             
+            <apex:pageBlockSection>
+                <apex:inputText value="{!filterName}" label="Acc Name" />
+                <apex:commandButton value="Filter Accs" action="{!filterAccs}" rerender="displayAccsPanel" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <apex:outputPanel id="displayAccsPanel">
+        <apex:include pageName="AllAccsContacts.page">
+            <apex:param name="filterName" value="{!filterName}" />
+        </apex:include>
+    </apex:outputPanel>
+</apex:page>

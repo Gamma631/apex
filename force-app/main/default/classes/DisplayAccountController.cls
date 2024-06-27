@@ -1,8 +1,8 @@
 public with sharing class DisplayAccountController {
     public String accId { get; set; }
-    public Account acc { get; private set; }
+    public transient Account acc { get; private set; }
     public Boolean displayacc { get; private set; }
-    public List<Contact> relatedContacts { get; private set; }
+    public transient List<Contact> relatedContacts { get; private set; }
 
     public DisplayAccountController() {
         relatedContacts = new List<Contact>();

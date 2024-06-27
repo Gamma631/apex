@@ -1,5 +1,5 @@
 public with sharing class FixedAccController {
-    public Account acc { get; set; }
+    public transient Account acc { get; set; }
     public String userLang { get; set; }
     public String aboutMe { get; set; }
     public Boolean showGreeting { get; set; }

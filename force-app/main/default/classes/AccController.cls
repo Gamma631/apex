@@ -1,5 +1,5 @@
 public with sharing class AccController {
-    public Account acc { get; set; }
+    public transient Account acc { get; set; }
     public String accId { get; set; }
 
     public AccController() {

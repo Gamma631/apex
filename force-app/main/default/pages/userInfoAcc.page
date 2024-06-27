@@ -1,7 +1,7 @@
 <apex:page controller="DisplayAccountController">
     <apex:form>
         <apex:pageBlock title="Display Account Details">
-            <apex:pageMessages /> <!-- To display any error messages -->
+            <apex:pageMessages />
             
             <apex:pageBlockSection>
                 <apex:inputText value="{!accId}" label="Enter Account Id" />
@@ -18,7 +18,7 @@
             </apex:outputPanel>
 
 			<apex:outputPanel id="contactListPanel">
-                <apex:pageBlockSection title="Related Contacts" rendered="{!displayAccount}">
+                <apex:pageBlockSection title="Related Contacts" rendered="{!displayacc}">
                     <apex:dataList value="{!relatedContacts}" var="contact">
                         <apex:outputText value="{!contact.Name}" /><br/>
                     </apex:dataList>
