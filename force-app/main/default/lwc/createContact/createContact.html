@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="New Contact" icon-name="standard:contact">
+        <div class="slds-p-around_medium">
+            <lightning-input label="First Name" value={firstName}></lightning-input>
+            <lightning-input label="Last Name" value={lastName}></lightning-input>
+            <lightning-input label="Email" value={email}></lightning-input>
+            <lightning-combobox
+                label="Account"
+                value={accountId}
+                options={accountOptions}>
+            </lightning-combobox>
+            <lightning-button variant="brand" label="Save Contact" onclick={handleSubmit}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

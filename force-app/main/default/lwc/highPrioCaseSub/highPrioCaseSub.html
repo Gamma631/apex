@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="High Priority Case Subscriber">
+        <template if:true={caseNumber}>
+            <p>HIGH Priority Alert: Case Number: {caseNumber}</p>
+        </template>
+        <template if:false={caseNumber}>
+            <p>No high priority cases received.</p>
+        </template>
+    </lightning-card>
+</template>
